@@ -812,7 +812,7 @@ export default function GameDetailsPage({ params }: { params: Promise<{ slug: st
         } catch (walletError: any) {
           toast.error(
             walletError?.message ||
-              "Failed to process wallet payment. Please contact support."
+            "Failed to process wallet payment. Please contact support."
           );
         } finally {
           setIsProcessing(false);
@@ -875,7 +875,7 @@ export default function GameDetailsPage({ params }: { params: Promise<{ slug: st
         } catch (upiError: any) {
           toast.error(
             upiError?.message ||
-              "Failed to initiate UPI payment. Please contact support."
+            "Failed to initiate UPI payment. Please contact support."
           );
           setIsProcessing(false);
         }
@@ -1106,6 +1106,7 @@ export default function GameDetailsPage({ params }: { params: Promise<{ slug: st
                         key={`${pkgKey}-${index}`}
                         onClick={() => {
                           setSelectedPackage(pkg);
+                          document.getElementById("order-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
                         }}
                         className={`group relative p-3 rounded-xl text-left transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${isSelected
                           ? "bg-goblin-green/10 border-2 border-goblin-green shadow-lg shadow-goblin-green/20"
